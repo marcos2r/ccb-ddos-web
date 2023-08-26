@@ -1,0 +1,124 @@
+:root {
+    --primary-color: #033D60;
+    --background-color: #F5F7FA;
+    --table-border-color: #ccc;
+}
+
+body {
+    font-family: "Verdana", sans-serif;
+    background-color: var(--background-color);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+header img {
+    width: 125px;
+    height: auto;
+}
+
+header a img {
+    width: 50px;
+    height: auto;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--primary-color);
+}
+
+table {
+    background-color: white;
+    border: 1px solid var(--table-border-color);
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+thead {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+th,
+td {
+    text-align: center;
+    border: 1px solid var(--table-border-color);
+    padding: 10px;
+}
+
+tbody {
+    max-height: 600px;
+    overflow: auto;
+}
+
+tbody tr:hover {
+    background-color: #E5E9F2;
+}
+
+/* Alinhar a segunda coluna à esquerda a partir da primeira linha */
+tbody tr td:nth-child(2) {
+    text-align: left;
+}
+
+/* Destaque para links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #01608F;
+}
+
+/* Estilo para dispositivos móveis */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+        background-color: var(--primary-color);
+        color: white;
+        height: 100%;
+        align-items: center;
+    }
+
+    header img {
+        width: 75px;
+        height: auto;
+    }
+
+    header a img {
+        width: 25px;
+    }
+
+    h1 {
+        margin: 10px 0;
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+}
