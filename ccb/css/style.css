@@ -1,122 +1,141 @@
+/* Definição de variáveis de cor */
 :root {
-    --primary-color: #033D60;
-    --background-color: #F5F7FA;
-    --table-border-color: #ccc;
+    --primary-color: #033D60; /* Cor primária */
+    --background-color: #F5F7FA; /* Cor de fundo */
+    --table-border-color: #ccc; /* Cor da borda da tabela */
 }
 
+/* Estilos gerais do corpo do documento */
 body {
-    font-family: "Verdana", sans-serif;
-    background-color: var(--background-color);
-    color: #333;
+    font-family: "Verdana", sans-serif; /* Fonte do corpo do texto */
+    background-color: var(--background-color); /* Cor de fundo */
+    color: #333; /* Cor do texto */
     margin: 0;
     padding: 0;
 }
 
+/* Estilos do cabeçalho */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--primary-color); /* Cor de fundo do cabeçalho */
+    color: white; /* Cor do texto no cabeçalho */
 }
 
+/* Estilos da imagem do cabeçalho */
 header img {
     width: 125px;
     height: auto;
 }
 
+/* Estilos da imagem do cabeçalho dentro de um link */
 header a img {
     width: 50px;
     height: auto;
 }
 
+/* Estilos para títulos de segundo nível */
 h2 {
     text-align: center;
     margin-top: 20px;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Cor do título */
 }
 
+/* Estilos da tabela */
 table {
-    background-color: white;
-    border: 1px solid var(--table-border-color);
+    background-color: white; /* Cor de fundo da tabela */
+    border: 1px solid var(--table-border-color); /* Borda da tabela */
     margin: 0 auto;
-    border-collapse: collapse;
+    border-collapse: collapse; /* Colapso das bordas das células */
     border-radius: 8px;
-    max-width: 100%;
+    max-width: 100%; /* Largura máxima da tabela */
 }
 
+/* Estilos do cabeçalho da tabela */
 thead {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--primary-color); /* Cor de fundo do cabeçalho da tabela */
+    color: white; /* Cor do texto no cabeçalho da tabela */
 }
 
+/* Estilos das células de cabeçalho e corpo da tabela */
 th,
 td {
     text-align: center;
-    border: 1px solid var(--table-border-color);
+    border: 1px solid var(--table-border-color); /* Borda das células */
     padding: 10px;
 }
 
+/* Estilos do corpo da tabela */
 tbody {
-    max-height: 600px;
-    overflow: auto;
+    max-height: 600px; /* Altura máxima do corpo da tabela com barra de rolagem */
+    overflow: auto; /* Adicionar barra de rolagem se o conteúdo ultrapassar a altura */
 }
 
+/* Estilos das linhas de tabela quando o mouse está sobre elas */
 tbody tr:hover {
-    background-color: #E5E9F2;
+    background-color: #E5E9F2; /* Cor de fundo ao passar o mouse */
 }
 
 /* Alinhar a segunda coluna à esquerda a partir da primeira linha */
 tbody tr td:nth-child(2) {
-    text-align: left;
+    text-align: left; /* Alinhamento à esquerda para a segunda coluna */
 }
 
-/* Destaque para links */
+/* Estilos para links */
 a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
+    color: var(--primary-color); /* Cor dos links */
+    text-decoration: none; /* Remover decoração de texto sublinhado */
+    transition: color 0.3s ease-in-out; /* Transição de cor suave */
 }
 
+/* Estilos para links quando o mouse está sobre eles */
 a:hover {
-    color: #01608F;
+    color: #01608F; /* Cor do link ao passar o mouse */
 }
 
-/* Estilo para dispositivos móveis */
+/* Estilos para dispositivos móveis usando media queries */
 @media screen and (max-width: 768px) {
+    /* Estilos do cabeçalho para dispositivos móveis */
     header {
         flex-direction: column;
         padding: 10px;
-        background-color: var(--primary-color);
-        color: white;
+        background-color: var(--primary-color); /* Cor de fundo do cabeçalho */
+        color: white; /* Cor do texto no cabeçalho */
         height: 100%;
         align-items: center;
     }
 
+    /* Estilos da imagem do cabeçalho para dispositivos móveis */
     header img {
         width: 75px;
         height: auto;
     }
 
+    /* Estilos da imagem do cabeçalho dentro de um link para dispositivos móveis */
     header a img {
         width: 25px;
     }
 
+    /* Estilos para títulos de primeiro nível para dispositivos móveis */
     h1 {
         margin: 10px 0;
         font-size: 1.5em;
     }
 
+    /* Estilos para títulos de segundo nível para dispositivos móveis */
     h2 {
         font-size: 1.2em;
     }
 
+    /* Estilos da tabela para dispositivos móveis */
     table {
-        width: 100%;
-        font-size: 14px;
+        width: 100%; /* Largura da tabela preenchendo 100% da tela */
+        font-size: 14px; /* Tamanho da fonte menor para dispositivos móveis */
     }
 
+    /* Estilos das células de cabeçalho e corpo da tabela para dispositivos móveis */
     th,
     td {
         padding: 8px;

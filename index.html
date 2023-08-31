@@ -8,9 +8,10 @@
     <link rel="icon" href="ccb/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="ccb/css/style.css">
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7JFL3XGN4"></script>
     <script>
+        // Configuração do Google Analytics
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
@@ -20,14 +21,20 @@
 
 <body>
     <header>
+        <!-- Logo da congregação -->
         <img src="ccb/img/logo.png" alt="logo">
+        <!-- Título da regional -->
         <h1>Regional Dourados</h1>
+        <!-- Link para a página DokuWiki -->
         <a href="dokuwiki/index.php"><img src="ccb/img/dokuwiki.png" alt="DokuWiki"></a>
     </header>
     <main>
+        <!-- Título para os dias de culto -->
         <h2>DIAS DE CULTO OFICIAL - DOURADOS/MS</h2>
+        <!-- Tabela para exibir os dias de culto -->
         <table>
             <thead>
+                <!-- Cabeçalho da tabela -->
                 <tr>
                     <th>Cod.</th>
                     <th>Igreja</th>
@@ -40,16 +47,18 @@
                     <th>Sábado</th>
                 </tr>
             </thead>
-            <tbody id="tabelaCorpo"></tbody>
+            <tbody id="tabelaCorpo"></tbody> <!-- Corpo da tabela preenchido dinamicamente -->
         </table>
     </main>
     <footer>
-        <!-- Logo de Validação da W3C -->
+        <!-- Logo de Validação da W3C para HTML -->
         <a href="//validator.w3.org/check/referer" title="Valid HTML5"><img src="ccb/img/button-html5.png" width="80"
                 height="15" alt="Valid HTML5"></a>
+        <!-- Logo de Validação da W3C para CSS -->
         <a href="//jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS"><img
                 src="ccb/img/button-css.png" width="80" height="15" alt="Valid CSS"></a>
     </footer>
+    <!-- Script JavaScript para manipular os dados e a tabela -->
     <script src="ccb/js/script.js"></script>
 </body>
 
