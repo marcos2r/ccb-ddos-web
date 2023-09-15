@@ -8,7 +8,7 @@ function criarCelula(texto) {
 // Função assíncrona que obtém dados de uma URL usando a API fetch.
 async function obterDados() {
     try {
-        const response = await fetch("http://ccbdourados.org.br:5000/igrejas"); // Faz a requisição
+        const response = await fetch("http://ccbdourados.org.br:8000/igrejas"); // Faz a requisição
         const data = await response.json(); // Converte a resposta para JSON
         return data; // Retorna os dados obtidos
     } catch (error) {
