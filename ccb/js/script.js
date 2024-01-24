@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const igrejaCard = document.createElement("div");
                 igrejaCard.classList.add("igreja-card");
 
-                const titulo = document.createElement("h2");
+                const titulo = document.createElement("h3");
                 titulo.textContent = igreja.igreja;
                 igrejaCard.appendChild(titulo);
 
