@@ -45,27 +45,27 @@ h2 {
 }
 
 #igrejas-list {
-    max-width: 600px;
-    margin: auto;
+    max-width: 600px; /* Define a largura máxima para evitar que a lista de igrejas fique muito larga */
+    margin: auto; /* Centraliza a lista de igrejas horizontalmente na página */
 }
 
 .igreja-card {
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    padding: 10px;
+    border: 1px solid #ccc; /* Adiciona uma borda sólida ao redor de cada "card" de igreja */
+    margin-bottom: 10px; /* Adiciona margem na parte inferior para criar espaço entre os "cards" de igreja */
+    padding: 10px; /* Adiciona preenchimento interno para dar espaço interno aos "cards" de igreja */
 }
 
 .igreja-card h2 {
-    margin-bottom: 5px;
+    margin-bottom: 5px; /* Adiciona margem na parte inferior do título de cada "card" de igreja para criar espaço */
 }
 
 .cultos-list {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: none; /* Remove a estilização padrão de marcadores de lista */
+    padding: 0; /* Remove o preenchimento padrão da lista para eliminar qualquer espaço extra */
 }
 
 .culto-item {
-    margin-bottom: 5px;
+    margin-bottom: 5px; /* Adiciona margem na parte inferior de cada item da lista de cultos para criar espaço entre eles */
 }
 
 /* Estilos para links */
