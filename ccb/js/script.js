@@ -1,51 +1,44 @@
-// Função que cria e retorna uma nova célula de tabela (td) com o texto fornecido.
-function criarCelula(texto) {
-    const cell = document.createElement("td"); // Cria um elemento <td>
-    cell.textContent = texto; // Define o texto da célula como o valor fornecido
-    return cell; // Retorna a célula criada
-}
+document.addEventListener("DOMContentLoaded", function () {
+    // URL da API
+    const apiUrl = "http://api.ccbdourados.org.br/igrejas";
 
-// Função assíncrona que obtém dados de uma URL usando a API fetch.
-async function obterDados() {
-    try {
-        const response = await fetch("http://ccbdourados.org.br:8000/igrejas"); // Faz a requisição
-        const data = await response.json(); // Converte a resposta para JSON
-        return data; // Retorna os dados obtidos
-    } catch (error) {
-        console.error("Erro ao obter dados: ", error); // Mostra um erro se algo der errado
-    }
-}
+    // Elemento onde as igrejas serão exibidas
+    const igrejasListElement = document.getElementById("igrejas-list");
 
-// Função que gera uma tabela com base nos dados fornecidos.
-function gerarTabela(data) {
-    const tabelaCorpo = document.getElementById("tabelaCorpo"); // Obtém o corpo da tabela pelo ID
-    tabelaCorpo.innerHTML = ""; // Limpa o conteúdo atual da tabela
+    // Função para obter e exibir as igrejas
+    async function obterIgrejas() {
+        try {
+            const resposta = await fetch(apiUrl);
+            const dados = await resposta.json();
 
-    // Itera sobre os dados e cria uma nova linha (tr) para cada conjunto de dados.
-    for (const dado of data) {
-        const linha = document.createElement("tr"); // Cria uma nova linha
+            // Criar cards para cada igreja
+            dados.igrejas.forEach(igreja => {
+                const igrejaCard = document.createElement("div");
+                igrejaCard.classList.add("igreja-card");
 
-        // Para cada dado, cria células de tabela (td) e atribui os valores correspondentes.
-        linha.appendChild(criarCelula(dado.cod));
-        linha.appendChild(criarCelula(dado.igreja));
-        linha.appendChild(criarCelula(dado.domingo));
-        linha.appendChild(criarCelula(dado.segunda));
-        linha.appendChild(criarCelula(dado.terca));
-        linha.appendChild(criarCelula(dado.quarta));
-        linha.appendChild(criarCelula(dado.quinta));
-        linha.appendChild(criarCelula(dado.sexta));
-        linha.appendChild(criarCelula(dado.sabado));
+                const titulo = document.createElement("h2");
+                titulo.textContent = igreja.igreja;
+                igrejaCard.appendChild(titulo);
 
-        tabelaCorpo.appendChild(linha); // Adiciona a linha à tabela
-    }
-}
+                const cultosList = document.createElement("ul");
+                cultosList.classList.add("cultos-list");
 
-// Aguarda o evento de carregamento do DOM para iniciar as ações.
-document.addEventListener("DOMContentLoaded", () => {
-    // Chama a função para obter dados e, se houver dados válidos, gera a tabela.
-    obterDados().then(data => {
-        if (data) {
-            gerarTabela(data);
+                // Adicionar cada culto à lista
+                for (const dia in igreja.cultos) {
+                    const cultoItem = document.createElement("li");
+                    cultoItem.classList.add("culto-item");
+                    cultoItem.textContent = `${dia}: ${igreja.cultos[dia]}`;
+                    cultosList.appendChild(cultoItem);
+                }
+
+                igrejaCard.appendChild(cultosList);
+                igrejasListElement.appendChild(igrejaCard);
+            });
+        } catch (erro) {
+            console.error("Erro ao obter as igrejas:", erro);
         }
-    });
+    }
+
+    // Chamar a função para exibir as igrejas
+    obterIgrejas();
 });

@@ -43,45 +43,35 @@ h2 {
     color: var(--primary-color); /* Cor do título */
 }
 
-/* Estilos da tabela */
-table {
-    background-color: white; /* Cor de fundo da tabela */
-    border: 1px solid var(--table-border-color); /* Borda da tabela */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+#igrejas-list {
+    max-width: 600px;
     margin: 0 auto;
-    border-collapse: collapse; /* Colapso das bordas das células */
-    border-radius: 8px;
-    max-width: 100%; /* Largura máxima da tabela */
 }
 
-/* Estilos do cabeçalho da tabela */
-thead {
-    background-color: var(--primary-color); /* Cor de fundo do cabeçalho da tabela */
-    color: white; /* Cor do texto no cabeçalho da tabela */
-}
-
-/* Estilos das células de cabeçalho e corpo da tabela */
-th,
-td {
-    text-align: center;
-    border: 1px solid var(--table-border-color); /* Borda das células */
+.igreja-card {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
     padding: 10px;
 }
 
-/* Estilos do corpo da tabela */
-tbody {
-    max-height: 600px; /* Altura máxima do corpo da tabela com barra de rolagem */
-    overflow: auto; /* Adicionar barra de rolagem se o conteúdo ultrapassar a altura */
+.igreja-card h2 {
+    margin-bottom: 5px;
 }
 
-/* Estilos das linhas de tabela quando o mouse está sobre elas */
-tbody tr:hover {
-    background-color: #E5E9F2; /* Cor de fundo ao passar o mouse */
+.cultos-list {
+    list-style-type: none;
+    padding: 0;
 }
 
-/* Alinhar a segunda coluna à esquerda a partir da primeira linha */
-tbody tr td:nth-child(2) {
-    text-align: left; /* Alinhamento à esquerda para a segunda coluna */
+.culto-item {
+    margin-bottom: 5px;
 }
+
 
 /* Estilos para links */
 a {
@@ -127,17 +117,5 @@ a:hover {
     /* Estilos para títulos de segundo nível para dispositivos móveis */
     h2 {
         font-size: 1.2em;
-    }
-
-    /* Estilos da tabela para dispositivos móveis */
-    table {
-        width: 100%; /* Largura da tabela preenchendo 100% da tela */
-        font-size: 14px; /* Tamanho da fonte menor para dispositivos móveis */
-    }
-
-    /* Estilos das células de cabeçalho e corpo da tabela para dispositivos móveis */
-    th,
-    td {
-        padding: 8px;
     }
 }
