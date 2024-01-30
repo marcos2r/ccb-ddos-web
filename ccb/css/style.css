@@ -53,6 +53,9 @@ h2 {
     border: 1px solid #ccc; /* Adiciona uma borda sólida ao redor de cada "card" de igreja */
     margin-bottom: 10px; /* Adiciona margem na parte inferior para criar espaço entre os "cards" de igreja */
     padding: 10px; /* Adiciona preenchimento interno para dar espaço interno aos "cards" de igreja */
+    border-radius: 10px; /* Arredondamento das bordas */
+    border-color: var(--primary-color);
+    box-shadow: 5px 5xp RGB(3,61,96,0.5);
 }
 
 .igreja-card h2 {
