@@ -27,7 +27,7 @@ header {
 
 /* Estilos da imagem do cabeçalho */
 header img {
-    width: 125px;
+    width: 3cm;
     height: auto;
 }
 
@@ -94,7 +94,7 @@ a:hover {
 
     /* Estilos da imagem do cabeçalho para dispositivos móveis */
     header img {
-        width: 75px;
+        width: 3cm;
         height: auto;
     }
 
