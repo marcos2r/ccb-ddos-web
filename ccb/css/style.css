@@ -55,7 +55,7 @@ h2 {
     padding: 10px; /* Adiciona preenchimento interno para dar espaço interno aos "cards" de igreja */
     border-radius: 10px; /* Arredondamento das bordas */
     border-color: var(--primary-color);
-    box-shadow: 5px 5xp RGB(3,61,96,0.5);
+    box-shadow: 5px 5xp rgba(3,61,96,0.5);
 }
 
 .igreja-card h2 {
