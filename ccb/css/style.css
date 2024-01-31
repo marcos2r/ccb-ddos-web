@@ -1,8 +1,23 @@
 /* Definição de variáveis de cor */
 :root {
-    --primary-color: #033D60; /* Cor primária */
-    --background-color: #F5F7FA; /* Cor de fundo */
-    --table-border-color: #ccc; /* Cor da borda da tabela */
+    /*Cores Primárias*/
+    --azul-escuro:#033D60;
+    --branco:#FFFFFF;
+    --preto:#201E1E;
+    --cinza-padrao:#CDD4DC;
+
+    /*Cores Secundárias*/
+    --secundaria-a:#A5A5A5;
+    --secundaria-b:#49656C;
+    --secundaria-c:#5DB196;
+    --secundaria-d:#98CDBD;
+
+    /*Cores ênfase, destaque e marcações*/
+    --enfase-a:#DC3C00;
+    --enfase-b:#FFCC66;
+
+
+    --background-color: #FFFFFF; /* Cor de fundo */
 }
 
 /* Estilos gerais do corpo do documento */
@@ -20,7 +35,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: var(--primary-color); /* Cor de fundo do cabeçalho */
+    background-color: var(--azul-escuro); /* Cor de fundo do cabeçalho */
     color: white; /* Cor do texto no cabeçalho */
     margin-bottom: 10px;
 }
@@ -41,7 +56,7 @@ header a img {
 h2 {
     text-align: center;
     margin-top: 20px;
-    color: var(--primary-color); /* Cor do título */
+    color: var(--azul-escuro); /* Cor do título */
 }
 
 #igrejas-list {
@@ -50,11 +65,14 @@ h2 {
 }
 
 .igreja-card {
-    border: 1px solid #ccc; /* Adiciona uma borda sólida ao redor de cada "card" de igreja */
-    margin-bottom: 10px; /* Adiciona margem na parte inferior para criar espaço entre os "cards" de igreja */
-    padding: 10px; /* Adiciona preenchimento interno para dar espaço interno aos "cards" de igreja */
-    border-radius: 10px; /* Arredondamento das bordas */
-    border-color: var(--primary-color);
+    background-color: var(--cinza-padrao);
+    margin-bottom: 10px;
+    padding: 10px;
+    color: var(--azul-escuro);
+
+    /*Configuração de bordas*/
+    border-radius: 10px;
+    border-color: var(--azul-escuro);
     box-shadow: 5px 5px rgba(3,61,96,0.5);
 }
 
@@ -73,7 +91,7 @@ h2 {
 
 /* Estilos para links */
 a {
-    color: var(--primary-color); /* Cor dos links */
+    color: var(--azul-escuro); /* Cor dos links */
     text-decoration: none; /* Remover decoração de texto sublinhado */
     transition: color 0.3s ease-in-out; /* Transição de cor suave */
 }
@@ -89,7 +107,7 @@ a:hover {
     header {
         flex-direction: column;
         padding: 10px;
-        background-color: var(--primary-color); /* Cor de fundo do cabeçalho */
+        background-color: var(--azul-escuro); /* Cor de fundo do cabeçalho */
         color: white; /* Cor do texto no cabeçalho */
         height: 100%;
         align-items: center;
@@ -115,5 +133,9 @@ a:hover {
     /* Estilos para títulos de segundo nível para dispositivos móveis */
     h2 {
         font-size: 1.2em;
+    }
+
+    .igreja-card {
+        margin: 6px;
     }
 }
