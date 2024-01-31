@@ -35,7 +35,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-color: var(--azul-escuro); /* Cor de fundo do cabeçalho */
+    background-color: var(--cinza-padrao); /* Cor de fundo do cabeçalho */
     color: white; /* Cor do texto no cabeçalho */
     margin-bottom: 10px;
 }
