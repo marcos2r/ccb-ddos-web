@@ -67,11 +67,14 @@ hr {
     margin: auto; /* Centraliza a lista de igrejas horizontalmente na página */
 }
 
+/*Trabalhando com a formatação dos card das igrejas*/
+
 .igreja-card {
     background-color: var(--cinza-padrao);
     margin-bottom: 10px;
     padding: 10px;
     color: var(--azul-escuro);
+    display: flex;
 
     /*Configuração de bordas*/
     border-radius: 10px;
@@ -79,13 +82,22 @@ hr {
     box-shadow: 5px 5px rgba(3,61,96,0.5);
 }
 
-.igreja-card h2 {
-    margin-bottom: 5px; /* Adiciona margem na parte inferior do título de cada "card" de igreja para criar espaço */
+.igreja-card img {
+    width: 16px;
+    height: 16px;
+    margin: 5px;
+}
+
+.igreja-card h3 {
+   vertical-align: top;
+   margin: 2px 2px;
 }
 
 .cultos-list {
     list-style-type: none; /* Remove a estilização padrão de marcadores de lista */
     padding: 0; /* Remove o preenchimento padrão da lista para eliminar qualquer espaço extra */
+    display: flex;
+    flex-direction: column;
 }
 
 .culto-item {
