@@ -16,14 +16,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 const igrejaCard = document.createElement("div");
                 igrejaCard.classList.add("igreja-card");
 
+                const divTituloIgreja = document.createElement("div");
+                divTituloIgreja.id = "divTituloIgreja";
+
                 const icoIgreja = document.createElement("img");
                 icoIgreja.src = "ccb/img/igreja.png";
                 icoIgreja.alt = "Ícone da Igreja";
-                igrejaCard.appendChild(icoIgreja);
+                divTituloIgreja.appendChild(icoIgreja);
 
                 const titulo = document.createElement("h3");
                 titulo.textContent = igreja.igreja;
-                igrejaCard.appendChild(titulo);
+                divTituloIgreja.appendChild(titulo);
+
+                igrejaCard.appendChild(divTituloIgreja);
 
                 const cultosList = document.createElement("ul");
                 cultosList.classList.add("cultos-list");
