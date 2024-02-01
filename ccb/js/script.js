@@ -16,6 +16,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 const igrejaCard = document.createElement("div");
                 igrejaCard.classList.add("igreja-card");
 
+                const icoIgreja = document.createElement("img");
+                icoIgreja.src = "ccb/img/igreja.png";
+                icoIgreja.alt = "Ícone da Igreja";
+                igrejaCard.appendChild(icoIgreja);
+
                 const titulo = document.createElement("h3");
                 titulo.textContent = igreja.igreja;
                 igrejaCard.appendChild(titulo);
