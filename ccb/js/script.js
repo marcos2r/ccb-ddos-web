@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // URL da API
-    const apiUrl = "http://api.ccbdourados.org.br/igrejas";
+    const apiUrl = "https://api.ccbdourados.org.br/igrejas";
 
     // Elemento onde as igrejas serão exibidas
     const igrejasListElement = document.getElementById("igrejas-list");
