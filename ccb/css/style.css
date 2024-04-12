@@ -67,6 +67,21 @@ hr {
     margin: auto; /* Centraliza a lista de igrejas horizontalmente na página */
 }
 
+/*Trabalhando com a formatação do cronograma da missão resgate*/
+div.cronograma {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+div.cronograma a img {
+    max-width: 580px;
+
+    /*Configuração de bordas*/
+    border-radius: 10px;
+    border-color: #A99A59;
+    box-shadow: 5px 5px #A99A59;
+}
+
 /*Trabalhando com a formatação dos card das igrejas*/
 
 div.igreja-card {
@@ -85,7 +100,7 @@ div#divTituloIgreja {
     display: flex;
 }
 
-img {
+div.igreja-card img {
     width: 16px;
     height: 16px;
     margin: 5px;
