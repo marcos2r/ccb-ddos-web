@@ -75,6 +75,9 @@ div.cronograma {
 
 div.cronograma a img {
     max-width: 580px;
+    width: 100%;
+    height: 100%;
+
 
     /*Configuração de bordas*/
     border-radius: 10px;
