@@ -1,0 +1,92 @@
+:root {
+    --cor-branca: rgb(255, 255, 255);
+    --cor-preto: rgb(32, 30, 30);
+    --cor_cinza-parao: rgb(205, 212, 220);
+    --cor-azul-escuro: rgb(3, 61, 96);
+    --default-font: Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--cor-azul-escuro);
+    color: var(--cor-branca);
+    font-family: var(--default-font);
+}
+
+body header {
+    text-align: center;
+}
+
+body header img {
+    width: 200px;
+}
+
+body header h1 {
+    display: none;
+}
+
+#dias-semana {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+dd.dia-semana {
+    padding: 4px;
+    margin: 10px;
+    border-radius: 20px;
+    background-color: var(--cor_cinza-parao);
+    width: 275px;
+}
+
+dd.dia-semana h1 {
+    text-align: center;
+    color: var(--cor-azul-escuro);
+    font-size: 150%;
+}
+
+dd.dia-semana h2 {
+    background-color: var(--cor-azul-escuro);
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 75%;
+}
+
+dd.dia-semana h3 {
+    color: var(--cor-azul-escuro);
+    margin-left: 20px;
+    font-size: 75%;
+}
+
+dd.dia-semana dd {
+    margin: 0px;
+}
+
+/* Celulares */
+@media (max-width: 450px) {
+    header h1{
+        font-size: 110%;
+    }
+
+    header h2 {
+        font-size: 95%;
+    }
+
+    header h3 {
+        font-size: 80%;
+    }
+
+    #dias-semana {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    dd.dia-semana {
+        width: 90%;
+    }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1024px){
+
+}
