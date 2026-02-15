@@ -1,7 +1,7 @@
 :root {
     --cor-branca: rgb(255, 255, 255);
     --cor-preto: rgb(32, 30, 30);
-    --cor_cinza-parao: rgb(205, 212, 220);
+    --cor-cinza-padrao: rgb(205, 212, 220);
     --cor-azul-escuro: rgb(3, 61, 96);
     --default-font: Verdana, sans-serif;
 }
@@ -10,70 +10,96 @@ body {
     background-color: var(--cor-azul-escuro);
     color: var(--cor-branca);
     font-family: var(--default-font);
+    margin: 0;
 }
 
-body header {
+header {
     text-align: center;
+    padding: 20px 0;
 }
 
-body header img {
+header img {
     width: 200px;
+    height: auto;
 }
 
-body header h1 {
-    display: none;
+header h1 {
+    display: none; /* Mantendo oculto conforme original, talvez para SEO */
 }
 
+/* Container dos dias */
 #dias-semana {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 20px;
+    padding: 20px;
 }
 
-dd.dia-semana {
-    padding: 4px;
-    margin: 10px;
+/* Card de cada dia */
+.dia-semana {
+    padding: 15px;
     border-radius: 20px;
-    background-color: var(--cor_cinza-parao);
+    background-color: var(--cor-cinza-padrao);
     width: 275px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adicionada sombra suave */
 }
 
-dd.dia-semana h1 {
+/* Título do dia (Domingo, Segunda...) */
+.dia-semana h2 {
     text-align: center;
     color: var(--cor-azul-escuro);
-    font-size: 150%;
+    font-size: 1.5rem;
+    margin-top: 5px;
+    margin-bottom: 15px;
 }
 
-dd.dia-semana h2 {
+/* Seção de cada culto */
+.culto {
+    margin-bottom: 15px;
+}
+
+/* Horário e Tipo de Culto */
+.culto h3 {
     background-color: var(--cor-azul-escuro);
-    padding: 10px;
-    border-radius: 20px;
-    font-size: 75%;
+    color: var(--cor-branca);
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    margin: 0 0 8px 0;
+    text-align: center;
 }
 
-dd.dia-semana h3 {
+/* Lista de locais */
+.culto ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 0 10px;
+}
+
+.culto li {
     color: var(--cor-azul-escuro);
-    margin-left: 20px;
-    font-size: 75%;
+    margin-bottom: 4px;
+    font-size: 0.8rem;
+    padding-left: 10px;
+    border-left: 2px solid var(--cor-azul-escuro); /* Detalhe visual */
 }
 
-dd.dia-semana dd {
-    margin: 0px;
-}
+/* Responsividade */
 
 /* Celulares */
 @media (max-width: 450px) {
-    header h1{
-        font-size: 110%;
+    header h1 {
+        font-size: 1.1rem;
     }
 
     header h2 {
-        font-size: 95%;
+        font-size: 0.95rem;
     }
 
     header h3 {
-        font-size: 80%;
+        font-size: 0.8rem;
     }
 
     #dias-semana {
@@ -81,12 +107,13 @@ dd.dia-semana dd {
         align-items: center;
     }
 
-    dd.dia-semana {
+    .dia-semana {
         width: 90%;
+        max-width: 350px;
     }
 }
 
 /* Tablets */
 @media (min-width: 768px) and (max-width: 1024px){
-
+    /* Ajustes específicos para tablet se necessário */
 }
