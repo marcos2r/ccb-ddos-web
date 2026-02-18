@@ -43,7 +43,7 @@ header h1 {
     padding: 15px;
     border-radius: 20px;
     background-color: var(--cor-cinza-padrao);
-    width: 260px;
+    width: 255px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     /* Adicionada sombra suave */
 }
