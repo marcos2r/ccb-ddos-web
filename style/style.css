@@ -89,6 +89,39 @@ header h1 {
     /* Detalhe visual */
 }
 
+/* Botão de Download */
+.download-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+    padding: 0 20px;
+}
+
+.download-btn {
+    background-color: var(--cor-azul-escuro);
+    color: var(--cor-branca);
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: 2px solid var(--cor-branca);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.download-btn:hover {
+    background-color: var(--cor-branca);
+    color: var(--cor-azul-escuro);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.download-btn:active {
+    transform: translateY(-1px);
+}
+
 /* Responsividade */
 
 /* Celulares */
@@ -113,6 +146,17 @@ header h1 {
     .dia-semana {
         width: 90%;
         max-width: 350px;
+    }
+
+    .download-container {
+        margin: 30px 0;
+    }
+
+    .download-btn {
+        width: 100%;
+        max-width: 300px;
+        padding: 18px 20px; /* Touch target maior */
+        font-size: 1rem;
     }
 }
 
