@@ -86,7 +86,15 @@ header h1 {
     font-size: 0.8rem;
     padding-left: 10px;
     border-left: 2px solid var(--cor-azul-escuro);
-    /* Detalhe visual */
+}
+
+.culto li a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.culto li a:hover {
+    text-decoration: underline;
 }
 
 /* Botão de Download */
@@ -155,7 +163,8 @@ header h1 {
     .download-btn {
         width: 100%;
         max-width: 300px;
-        padding: 18px 20px; /* Touch target maior */
+        padding: 18px 20px;
+        /* Touch target maior */
         font-size: 1rem;
     }
 }
