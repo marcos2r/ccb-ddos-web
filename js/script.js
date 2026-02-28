@@ -8,7 +8,15 @@ const locationLinks = {
     'jardim-agua-boa': '-22.250564,-54.807942',
     'jardim-dos-estados': '-22.209672,-54.788616',
     'jardim-joquei-clube': '-22.244721,-54.736986',
-    'jardim-morada-do-salto': '-22.246912,-54.820591'
+    'jardim-morada-do-salto': '-22.246912,-54.820591',
+    'parque-nova-dourados': '-22.245035,-54.790202',
+    'jardim-carisma': '-22.205778,-54.771661',
+    'distrito-macauba': '-22.136598,-54.488110',
+    'residencial-oliveira': '-22.2379605,-54.778121',
+    'jardim-novo-horizonte': '-22.2358749,-54.8435411',
+    'jardim-marcia': '-22.2253557,-54.7560981',
+    'jardim-colibri': '-22.2558837,-54.7866707',
+    'jardim-nova-esperanca': '-22.212501,-54.755093'
 };
 
 document.addEventListener('DOMContentLoaded', () => {
