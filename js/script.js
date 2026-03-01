@@ -16,7 +16,11 @@ const locationLinks = {
     'jardim-novo-horizonte': '-22.2358749,-54.8435411',
     'jardim-marcia': '-22.2253557,-54.7560981',
     'jardim-colibri': '-22.2558837,-54.7866707',
-    'jardim-nova-esperanca': '-22.212501,-54.755093'
+    'jardim-nova-esperanca': '-22.212501,-54.755093',
+    'altos-do-indaia': '-22.2219187,-54.849964',
+    'jardim-guaicurus': '-22.261809,-54.7785524',
+    'distrito-itahum': '-22.084875,-55.351965',
+    'distrito-indapolis': '-22.214141,-54.651771'
 };
 
 document.addEventListener('DOMContentLoaded', () => {
