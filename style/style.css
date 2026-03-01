@@ -83,7 +83,7 @@ header h1 {
 .culto li {
     color: var(--cor-azul-escuro);
     margin-bottom: 4px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     padding-left: 10px;
     border-left: 2px solid var(--cor-azul-escuro);
 }
