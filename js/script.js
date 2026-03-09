@@ -23,7 +23,9 @@ const locationLinks = {
     'distrito-indapolis': '-22.214141,-54.651771',
     'jardim-laranja-doce': '-22.199633,-54.777805',
     'sitiocas-campo-belo-3': '-22.281302,-54.830318',
-    'greenville': '-22.270029,-54.788630'
+    'greenville': '-22.270029,-54.788630',
+    'residencial-bonanza': '-22.270512,-54.830325',
+    'sitiocas-campina-verde': '-22.263890,-54.822272'
 };
 
 document.addEventListener('DOMContentLoaded', () => {
