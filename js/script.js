@@ -22,7 +22,8 @@ const locationLinks = {
     'distrito-itahum': '-22.084875,-55.351965',
     'distrito-indapolis': '-22.214141,-54.651771',
     'jardim-laranja-doce': '-22.199633,-54.777805',
-    'sitiocas-campo-belo-3': '-22.281302,-54.830318'
+    'sitiocas-campo-belo-3': '-22.281302,-54.830318',
+    'greenville': '-22.270029,-54.788630'
 };
 
 document.addEventListener('DOMContentLoaded', () => {
