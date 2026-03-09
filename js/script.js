@@ -20,7 +20,9 @@ const locationLinks = {
     'altos-do-indaia': '-22.2219187,-54.849964',
     'jardim-guaicurus': '-22.261809,-54.7785524',
     'distrito-itahum': '-22.084875,-55.351965',
-    'distrito-indapolis': '-22.214141,-54.651771'
+    'distrito-indapolis': '-22.214141,-54.651771',
+    'jardim-laranja-doce': '-22.199633,-54.777805',
+    'sitiocas-campo-belo-3': '-22.281302,-54.830318'
 };
 
 document.addEventListener('DOMContentLoaded', () => {
