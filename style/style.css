@@ -130,6 +130,74 @@ header h1 {
     transform: translateY(-1px);
 }
 
+/* Seção de Links Úteis */
+.useful-links {
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.useful-links h2 {
+    color: var(--cor-branca);
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.links-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.link-card {
+    background-color: var(--cor-cinza-padrao);
+    padding: 20px;
+    border-radius: 15px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.link-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.link-card h4 {
+    color: var(--cor-azul-escuro);
+    margin: 0 0 15px 0;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.link-card a {
+    background-color: var(--cor-azul-escuro);
+    color: var(--cor-branca);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    width: 80%;
+}
+
+.link-card a:hover {
+    background-color: #055a8d;
+}
+
+/* Alteração no container de download para espaçamento */
+.download-container {
+    margin: 20px 0 40px 0;
+}
+
 /* Responsividade */
 
 /* Celulares */
