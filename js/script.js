@@ -29,6 +29,7 @@ const locationLinks = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Configurar Links do Google Maps
     const links = document.querySelectorAll('.map-link');
     links.forEach(link => {
         const locationKey = link.getAttribute('data-location');
@@ -39,4 +40,53 @@ document.addEventListener('DOMContentLoaded', () => {
             link.rel = 'noopener noreferrer';
         }
     });
+
+    // 2. Destacar Dia Atual
+    const diasSemana = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+    const hojeIndex = new Date().getDay(); // 0 a 6
+    const hojeNome = diasSemana[hojeIndex];
+
+    const cardsDias = document.querySelectorAll('.dia-semana');
+    cardsDias.forEach(card => {
+        const h2 = card.querySelector('h2');
+        if (h2 && h2.textContent.trim() === hojeNome) {
+            card.classList.add('hoje');
+            // Role suavemente até o card de hoje se for mobile ou se não estiver visível
+            if (window.innerWidth < 768) {
+                setTimeout(() => {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 500);
+            }
+        }
+    });
+
+    // 3. Filtro de Busca
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            
+            cardsDias.forEach(card => {
+                const listItems = card.querySelectorAll('ul li');
+                let dayHasMatch = false;
+
+                listItems.forEach(li => {
+                    const text = li.textContent.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                    if (text.includes(term)) {
+                        li.classList.remove('hidden');
+                        dayHasMatch = true;
+                    } else {
+                        li.classList.add('hidden');
+                    }
+                });
+
+                // Se o dia não tem nenhuma congregação que bate com a busca, esconde o dia todo
+                if (dayHasMatch || term === '') {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    }
 });

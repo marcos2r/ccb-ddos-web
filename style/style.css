@@ -45,7 +45,31 @@ header h1 {
     background-color: var(--cor-cinza-padrao);
     width: 255px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Adicionada sombra suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 3px solid transparent;
+}
+
+/* Destaque do dia atual */
+.dia-semana.hoje {
+    border-color: #ffd700;
+    /* Dourado */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.dia-semana.hoje::after {
+    content: "HOJE";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #ffd700;
+    color: var(--cor-azul-escuro);
+    font-weight: bold;
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Título do dia (Domingo, Segunda...) */
@@ -128,6 +152,37 @@ header h1 {
 
 .download-btn:active {
     transform: translateY(-1px);
+}
+
+/* Estilos de Busca */
+.search-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+#search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    font-size: 1rem;
+    background-color: var(--cor-cinza-padrao);
+    color: var(--cor-azul-escuro);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+#search-input:focus {
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Ocultar elementos filtrados */
+.hidden {
+    display: none !important;
 }
 
 /* Seção de Links Úteis */
