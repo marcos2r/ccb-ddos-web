@@ -1,0 +1,16 @@
+{
+    "name": "Agenda CCB Dourados",
+    "short_name": "Agenda CCB",
+    "description": "Dias e horários de cultos na região de Dourados/MS",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#CDD4DC",
+    "theme_color": "#033D60",
+    "icons": [
+        {
+            "src": "./img/Logo-ccb-para-fundo-claro.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

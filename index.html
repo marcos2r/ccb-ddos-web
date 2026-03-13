@@ -5,9 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CCB - Dourados</title>
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#033D60">
+    <link rel="apple-touch-icon" href="./img/Logo-ccb-para-fundo-claro.png">
+    
     <link rel="icon" type="image/x-icon" href="https://ccbdourados.org.br/dir/img/favicon.ico">
     <link rel="stylesheet" href="./style/style.css">
     <script src="./js/script.js" defer></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then(registration => {
+                    console.log('ServiceWorker registered:', registration.scope);
+                }).catch(error => {
+                    console.log('ServiceWorker registration failed:', error);
+                });
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -27,13 +44,22 @@
             <input type="text" id="search-input" placeholder="Pesquisar congregação ou bairro..." aria-label="Pesquisar congregações">
         </section>
 
+        <!-- Filtros Rápidos -->
+        <section class="filters-container">
+            <button class="filter-btn active" data-filter="todos">Todos</button>
+            <button class="filter-btn" data-filter="rjm">RJM</button>
+            <button class="filter-btn" data-filter="oficial">Oficial</button>
+            <button class="filter-btn" data-filter="reuniao">Reunião Evang.</button>
+            <button class="filter-btn" data-filter="ensaio">Ensaio</button>
+        </section>
+
         <div id="dias-semana">
             <!-- Domingo -->
             <article class="dia-semana">
                 <h2>Domingo</h2>
 
                 <section class="culto">
-                    <h3>09:30 - RJM</h3>
+                    <h3 data-type="rjm">09:30 - RJM</h3>
                     <ul>
                         <li><a class="map-link" data-location="vila-planalto">Vila Planalto - Central</a></li>
                         <li><a class="map-link" data-location="vila-sao-francisco">Vila São Francisco</a></li>
@@ -60,21 +86,21 @@
                 </section>
 
                 <section class="culto">
-                    <h3>15:00 - RJM</h3>
+                    <h3 data-type="rjm">15:00 - RJM</h3>
                     <ul>
                         <li><a class="map-link" data-location="sitiocas-campo-belo-3">Sitiocas Campo Belo III</a></li>
                     </ul>
                 </section>
 
                 <section class="culto">
-                    <h3>18:00 - Culto Oficial</h3>
+                    <h3 data-type="oficial">18:00 - Culto Oficial</h3>
                     <ul>
                         <li>Aldeia Bororó</li>
                     </ul>
                 </section>
 
                 <section class="culto">
-                    <h3>19:00 - Culto Oficial</h3>
+                    <h3 data-type="oficial">19:00 - Culto Oficial</h3>
                     <ul>
                         <li><a class="map-link" data-location="vila-planalto">Vila Planalto - Central</a></li>
                         <li><a class="map-link" data-location="vila-sao-francisco">Vila São Francisco</a></li>
@@ -98,7 +124,7 @@
                 <h2>Segunda-feira</h2>
 
                 <section class="culto">
-                    <h3>19:30 - Reunião Evang.</h3>
+                    <h3 data-type="reuniao">19:30 - Reunião Evang.</h3>
                     <ul>
                         <li><a class="map-link" data-location="residencial-bonanza">Residencial Bonanza</a></li>
                     </ul>
@@ -110,7 +136,7 @@
                 <h2>Terça-feira</h2>
 
                 <section class="culto">
-                    <h3>19:30 - Culto Oficial</h3>
+                    <h3 data-type="oficial">19:30 - Culto Oficial</h3>
                     <ul>
                         <li><a class="map-link" data-location="jardim-agua-boa">Jardim Água Boa</a></li>
                         <li><a class="map-link" data-location="jardim-joquei-clube">Jardim Jóquei Clube</a></li>
@@ -129,14 +155,14 @@
                 <h2>Quarta-feira</h2>
 
                 <section class="culto">
-                    <h3>15:00 - Culto Oficial</h3>
+                    <h3 data-type="oficial">15:00 - Culto Oficial</h3>
                     <ul>
                         <li><a class="map-link" data-location="parque-nova-dourados">Parque Nova Dourados</a></li>
                     </ul>
                 </section>
 
                 <section class="culto">
-                    <h3>19:30 - Culto Oficial</h3>
+                    <h3 data-type="oficial">19:30 - Culto Oficial</h3>
                     <ul>
                         <li><a class="map-link" data-location="vila-planalto">Vila Planalto - Central</a></li>
                         <li><a class="map-link" data-location="distrito-vila-vargas">Distrito Vila Vargas</a></li>
@@ -155,7 +181,7 @@
                 <h2>Quinta-feira</h2>
 
                 <section class="culto">
-                    <h3>19:30 - Culto Oficial</h3>
+                    <h3 data-type="oficial">19:30 - Culto Oficial</h3>
                     <ul>
                         <li><a class="map-link" data-location="vila-sao-francisco">Vila São Francisco</a></li>
                         <li><a class="map-link" data-location="jardim-climax">Jardim Clímax</a></li>
@@ -173,7 +199,7 @@
                 <h2>Sexta-feira</h2>
 
                 <section class="culto">
-                    <h3>19:30 - Culto Oficial</h3>
+                    <h3 data-type="oficial">19:30 - Culto Oficial</h3>
                     <ul>
                         <li><a class="map-link" data-location="jardim-agua-boa">Jardim Água Boa</a></li>
                         <li><a class="map-link" data-location="jardim-dos-estados">Jardim dos Estados</a></li>
@@ -186,7 +212,7 @@
                 <h2>Sábado</h2>
 
                 <section class="culto">
-                    <h3>19:30 - RJM</h3>
+                    <h3 data-type="rjm">19:30 - RJM</h3>
                     <ul>
                         <li><a class="map-link" data-location="distrito-indapolis">Distrito Indápolis</a></li>
                         <li>Jardim Syria Rasselen</li>
@@ -194,21 +220,21 @@
                 </section>
 
                 <section class="culto">
-                    <h3>19:30 - Culto com Ensaio<br>(1º Sábado do Mês)</h3>
+                    <h3 data-type="ensaio">19:30 - Culto com Ensaio<br>(1º Sábado do Mês)</h3>
                     <ul>
                         <li><a class="map-link" data-location="distrito-panambi">Distrito Panambi</a></li>
                     </ul>
                 </section>
 
                 <section class="culto">
-                    <h3>19:30 - RJM<br>(4º Sábado do Mês)</h3>
+                    <h3 data-type="rjm">19:30 - RJM<br>(4º Sábado do Mês)</h3>
                     <ul>
                         <li><a class="map-link" data-location="distrito-panambi">Distrito Panambi</a></li>
                     </ul>
                 </section>
 
                 <section class="culto">
-                    <h3>19:30 - Culto Oficial</h3>
+                    <h3 data-type="oficial">19:30 - Culto Oficial</h3>
                     <ul>
                         <li><a class="map-link" data-location="vila-planalto">Vila Planalto - Central</a></li>
                         <li><a class="map-link" data-location="distrito-panambi">Distrito Panambi</a></li>
@@ -228,7 +254,7 @@
                 </section>
 
                 <section class="culto">
-                    <h3>19:30 - Reunião Evang.</h3>
+                    <h3 data-type="reuniao">19:30 - Reunião Evang.</h3>
                     <ul>
                         <li><a class="map-link" data-location="greenville">GreenVille</a></li>
                     </ul>
@@ -273,7 +299,17 @@
         </div>
 
     </main>
-    <footer></footer>
+
+    <footer class="official-footer">
+        <div class="footer-content">
+            <img src="./img/Logo-ccb-para-fundo-claro.png" alt="Logo CCB">
+            <div class="footer-info">
+                <h4>Congregação Cristã no Brasil - Administração de Dourados/MS</h4>
+                <p>Rua Maria da Glória, 455 - Vila Planalto, Dourados/MS</p>
+                <p>CEP: 79826-060</p>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

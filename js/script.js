@@ -60,33 +60,77 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3. Filtro de Busca
-    const searchInput = document.getElementById('search-input');
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-            
-            cardsDias.forEach(card => {
-                const listItems = card.querySelectorAll('ul li');
-                let dayHasMatch = false;
+    // 3. Filtros Rápidos (Botões)
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cultos = document.querySelectorAll('.culto');
+
+    function applyFilters(searchTerm = '', filterType = 'todos') {
+        const normalizedTerm = searchTerm.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+        cardsDias.forEach(card => {
+            let dayHasMatch = false;
+            const cultosNoDia = card.querySelectorAll('.culto');
+
+            cultosNoDia.forEach(culto => {
+                const tipoCulto = culto.querySelector('h3').getAttribute('data-type');
+                const listItems = culto.querySelectorAll('ul li');
+                let cultoHasMatch = false;
+
+                // Verifica se o culto atual passa no filtro de botões
+                const passesTypeFilter = (filterType === 'todos' || tipoCulto === filterType);
 
                 listItems.forEach(li => {
                     const text = li.textContent.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-                    if (text.includes(term)) {
+                    const passesSearchFilter = text.includes(normalizedTerm) || normalizedTerm === '';
+
+                    if (passesTypeFilter && passesSearchFilter) {
                         li.classList.remove('hidden');
-                        dayHasMatch = true;
+                        cultoHasMatch = true;
                     } else {
                         li.classList.add('hidden');
                     }
                 });
 
-                // Se o dia não tem nenhuma congregação que bate com a busca, esconde o dia todo
-                if (dayHasMatch || term === '') {
-                    card.classList.remove('hidden');
+                // Mostra/esconde a seção inteira do culto
+                if (cultoHasMatch) {
+                    culto.classList.remove('hidden');
+                    dayHasMatch = true;
                 } else {
-                    card.classList.add('hidden');
+                    culto.classList.add('hidden');
                 }
             });
+
+            // Mostra/esconde o dia inteiro
+            if (dayHasMatch) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class de todos
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Adiciona no clicado
+            btn.classList.add('active');
+
+            const filterType = btn.getAttribute('data-filter');
+            const currentSearch = document.getElementById('search-input') ? document.getElementById('search-input').value : '';
+            
+            applyFilters(currentSearch, filterType);
+        });
+    });
+
+    // 4. Filtro de Busca Texto
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const activeFilterBtn = document.querySelector('.filter-btn.active');
+            const filterType = activeFilterBtn ? activeFilterBtn.getAttribute('data-filter') : 'todos';
+            
+            applyFilters(e.target.value, filterType);
         });
     }
 });
