@@ -25,7 +25,8 @@ const locationLinks = {
     'sitiocas-campo-belo-3': '-22.281302,-54.830318',
     'greenville': '-22.270029,-54.788630',
     'residencial-bonanza': '-22.270512,-54.830325',
-    'sitiocas-campina-verde': '-22.263890,-54.822272'
+    'sitiocas-campina-verde': '-22.263890,-54.822272',
+    'aldeia-bororo': '-22.168685,-54.850104'
 };
 
 document.addEventListener('DOMContentLoaded', () => {
