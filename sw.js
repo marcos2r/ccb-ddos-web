@@ -1,8 +1,9 @@
-const CACHE_NAME = 'agenda-ccb-cache-v1';
+const CACHE_NAME = 'agenda-ccb-cache-v2';
 const urlsToCache = [
     '/',
     '/index.html',
     '/style/style.css',
+    '/js/data.js',
     '/js/script.js',
     '/img/Logo-ccb-para-fundo-claro.png'
 ];
