@@ -175,18 +175,39 @@ document.addEventListener('DOMContentLoaded', () => {
             const filterType = btn.getAttribute('data-filter');
             const currentSearch = document.getElementById('search-input') ? document.getElementById('search-input').value : '';
             
+            // Dispara evento para o Google Analytics do filtro selecionado
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'filtro_clicado', {
+                    'tipo_filtro': filterType
+                });
+            }
+
             applyFilters(currentSearch, filterType);
         });
     });
 
     // 4. Filtro de Busca Texto
     const searchInput = document.getElementById('search-input');
+    let searchTimeout; // Variável para debounce da pesquisa no Analytics
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
             const activeFilterBtn = document.querySelector('.filter-btn.active');
             const filterType = activeFilterBtn ? activeFilterBtn.getAttribute('data-filter') : 'todos';
+            const searchTerm = e.target.value;
             
-            applyFilters(e.target.value, filterType);
+            // Dispara evento para o Google Analytics apenas após parar de digitar (debounce)
+            clearTimeout(searchTimeout);
+            if (searchTerm.trim() !== '') {
+                searchTimeout = setTimeout(() => {
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'pesquisa_realizada', {
+                            'search_term': searchTerm
+                        });
+                    }
+                }, 1500); // Aguarda 1.5s após parar de digitar para computar a métrica
+            }
+
+            applyFilters(searchTerm, filterType);
         });
     }
 
