@@ -93,12 +93,44 @@ document.addEventListener('DOMContentLoaded', () => {
                 const passesTypeFilter = (filterType === 'todos' || tipoCulto === filterType);
 
                 listItems.forEach(li => {
-                    const text = li.textContent.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-                    const passesSearchFilter = text.includes(normalizedTerm) || normalizedTerm === '';
+                    const originalText = li.textContent;
+                    // Reset the innerHTML to remove any previous highlights before proceeding
+                    li.innerHTML = '';
+                    li.textContent = originalText;
+                    
+                    const textNormalized = originalText.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                    const passesSearchFilter = textNormalized.includes(normalizedTerm) || normalizedTerm === '';
 
                     if (passesTypeFilter && passesSearchFilter) {
                         li.classList.remove('hidden');
                         cultoHasMatch = true;
+
+                        // Apply fuzzy highlight if there is a search term
+                        if (searchTerm.trim() !== '') {
+                            // Find the original case and accents to preserve them
+                            const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, "gi");
+                            let highlightedHtml = originalText;
+                            
+                            if (originalText.match(regex)) {
+                              highlightedHtml = originalText.replace(regex, '<span class="highlight-text">$1</span>');
+                            } else {
+                              const startIndex = textNormalized.indexOf(normalizedTerm);
+                              if (startIndex !== -1) {
+                                  const originalMatch = originalText.substring(startIndex, startIndex + searchTerm.length);
+                                  const safeOriginalMatch = originalMatch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                                  const exactRegex = new RegExp(`(${safeOriginalMatch})`, "g");
+                                  highlightedHtml = originalText.replace(exactRegex, '<span class="highlight-text">$1</span>');
+                              }
+                            }
+
+                            // We must reconstruct the anchor element to keep the link functionality
+                            const existingAnchor = li.querySelector('a');
+                            if (existingAnchor) {
+                                existingAnchor.innerHTML = highlightedHtml;
+                            } else {
+                                li.innerHTML = highlightedHtml;
+                            }
+                        }
                     } else {
                         li.classList.add('hidden');
                     }
@@ -155,6 +187,61 @@ document.addEventListener('DOMContentLoaded', () => {
             const filterType = activeFilterBtn ? activeFilterBtn.getAttribute('data-filter') : 'todos';
             
             applyFilters(e.target.value, filterType);
+        });
+    }
+
+    // 5. Botão Voltar ao Topo
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // 6. Prompt de Instalação do PWA
+    let deferredPrompt;
+    const pwaBanner = document.getElementById('pwa-install-banner');
+    const pwaInstallBtn = document.getElementById('pwa-install-btn');
+    const pwaCloseBtn = document.getElementById('pwa-close-btn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Previne o mini-infobar do Chrome mobile de aparecer automaticamente
+        e.preventDefault();
+        deferredPrompt = e;
+        
+        // Verifica se o usuário não fechou o banner anteriormente nesta sessão
+        if (!sessionStorage.getItem('pwaPromptClosed') && pwaBanner) {
+            pwaBanner.classList.remove('hidden');
+        }
+    });
+
+    if (pwaInstallBtn) {
+        pwaInstallBtn.addEventListener('click', async () => {
+            if (pwaBanner) pwaBanner.classList.add('hidden');
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`User response to the install prompt: ${outcome}`);
+                deferredPrompt = null;
+            }
+        });
+    }
+
+    if (pwaCloseBtn) {
+        pwaCloseBtn.addEventListener('click', () => {
+            if (pwaBanner) pwaBanner.classList.add('hidden');
+            sessionStorage.setItem('pwaPromptClosed', 'true');
         });
     }
 });
