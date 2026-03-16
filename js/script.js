@@ -110,6 +110,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.classList.add('hidden');
             }
         });
+
+        // Toggle No Results Message
+        const anyMatch = Array.from(cardsDias).some(card => !card.classList.contains('hidden'));
+        const noResultsEl = document.getElementById('no-results');
+        if (noResultsEl) {
+            if (!anyMatch) {
+                noResultsEl.classList.remove('hidden');
+            } else {
+                noResultsEl.classList.add('hidden');
+            }
+        }
     }
 
     filterBtns.forEach(btn => {
