@@ -27,7 +27,9 @@ const locationLinks = {
     'residencial-bonanza': '-22.270512,-54.830325',
     'sitiocas-campina-verde': '-22.263890,-54.822272',
     'aldeia-bororo-2': '-22.168685,-54.850104',
-    'aldeia-bororo': '-22.1532788,-54.8580426'
+    'aldeia-bororo': '-22.1532788,-54.8580426',
+    'aldeia-jaguapiru': '', // Coordenadas pendentes
+    'jardim-syria-rasselen': '' // Coordenadas pendentes
 };
 
 const agendaSemanal = [
@@ -52,7 +54,7 @@ const agendaSemanal = [
                     { bairro: "Jardim Carisma", location: "jardim-carisma" },
                     { bairro: "Jardim Novo Horizonte", location: "jardim-novo-horizonte" },
                     { bairro: "Jardim Márcia", location: "jardim-marcia" },
-                    { bairro: "Aldeia Jaguapiru", location: null },
+                    { bairro: "Aldeia Jaguapiru", location: "aldeia-jaguapiru" },
                     { bairro: "Aldeia Bororó", location: "aldeia-bororo" },
                     { bairro: "Jardim Nova Esperança", location: "jardim-nova-esperanca" },
                     { bairro: "Altos do Indaiá", location: "altos-do-indaia" },
@@ -145,7 +147,7 @@ const agendaSemanal = [
                     { bairro: "Distrito Vila Vargas", location: "distrito-vila-vargas" },
                     { bairro: "Distrito Macaúba", location: "distrito-macauba" },
                     { bairro: "Jardim Márcia", location: "jardim-marcia" },
-                    { bairro: "Aldeia Jaguapiru", location: null },
+                    { bairro: "Aldeia Jaguapiru", location: "aldeia-jaguapiru" },
                     { bairro: "Altos do indaiá", location: "altos-do-indaia" },
                     { bairro: "Sitiocas Campina Verde", location: "sitiocas-campina-verde" },
                     { bairro: "Distrito de Itahum", location: "distrito-itahum" }
@@ -192,7 +194,7 @@ const agendaSemanal = [
                 descricao: "19:30 - RJM",
                 congrs: [
                     { bairro: "Distrito Indápolis", location: "distrito-indapolis" },
-                    { bairro: "Jardim Syria Rasselen", location: null }
+                    { bairro: "Jardim Syria Rasselen", location: "jardim-syria-rasselen" }
                 ]
             },
             {
@@ -224,7 +226,7 @@ const agendaSemanal = [
                     { bairro: "Jardim Novo Horizonte", location: "jardim-novo-horizonte" },
                     { bairro: "Jardim Laranja Doce", location: "jardim-laranja-doce" },
                     { bairro: "Jardim Colibri", location: "jardim-colibri" },
-                    { bairro: "Jardim Syria Rasselen", location: null },
+                    { bairro: "Jardim Syria Rasselen", location: "jardim-syria-rasselen" },
                     { bairro: "Sitiocas Campo Belo III", location: "sitiocas-campo-belo-3" },
                     { bairro: "Aldeia Bororó II", location: "aldeia-bororo-2" }
                 ]

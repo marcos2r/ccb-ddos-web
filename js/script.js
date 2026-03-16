@@ -32,6 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         a.href = `https://www.google.com/maps/dir/?api=1&destination=${coordinates}`;
                         a.target = '_blank';
                         a.rel = 'noopener noreferrer';
+                    } else {
+                        // Trata lugares com coordenadas pendentes
+                        a.href = '#';
+                        a.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            alert(`As coordenadas para '${congr.bairro}' ainda não estão disponíveis no sistema. Em breve serão adicionadas!`);
+                        });
+                        // Opcional: Adicionar uma classe pra ficar cinza/desabilitado visualmente
+                        a.style.opacity = '0.6';
+                        a.style.cursor = 'help';
                     }
                     li.appendChild(a);
                 } else {

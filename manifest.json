@@ -1,7 +1,7 @@
 {
-    "name": "Agenda CCB Dourados",
-    "short_name": "Agenda CCB",
-    "description": "Dias e horários de cultos na região de Dourados/MS",
+    "name": "CCB Dourados - Reuniões",
+    "short_name": "CCB Dourados",
+    "description": "Lista de dias, horários de cultos e endereços da Congregação Cristã no Brasil na região de Dourados/MS",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#CDD4DC",
