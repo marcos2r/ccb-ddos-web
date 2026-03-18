@@ -157,7 +157,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const anyMatch = Array.from(cardsDias).some(card => !card.classList.contains('hidden'));
         const noResultsEl = document.getElementById('no-results');
         if (noResultsEl) {
-            if (!anyMatch) {
+            const btnNearest = document.getElementById('btn-nearest-today');
+            const isNearestActive = btnNearest && btnNearest.classList.contains('active');
+
+            if (!anyMatch && !isNearestActive) {
                 noResultsEl.classList.remove('hidden');
             } else {
                 noResultsEl.classList.add('hidden');
