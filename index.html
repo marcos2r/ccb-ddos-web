@@ -75,7 +75,15 @@
             <button class="filter-btn" data-filter="oficial">Oficial</button>
             <button class="filter-btn" data-filter="reuniao">Reunião Evang.</button>
             <button class="filter-btn" data-filter="ensaio">Ensaio</button>
+            <button id="btn-nearest-today" class="filter-btn btn-nearest">📍 Mais próxima hoje</button>
         </section>
+
+        <!-- Resultado da Congregação Mais Próxima -->
+        <div id="nearest-result" class="hidden nearest-card">
+            <button id="close-nearest" class="close-btn" aria-label="Fechar">✕</button>
+            <h3>Culto Mais Próximo Hoje</h3>
+            <div id="nearest-info"></div>
+        </div>
 
         <div id="no-results" class="hidden">
             <p>Nenhuma congregação ou culto encontrado para esta pesquisa.</p>

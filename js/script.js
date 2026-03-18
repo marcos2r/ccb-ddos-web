@@ -265,4 +265,129 @@ document.addEventListener('DOMContentLoaded', () => {
             sessionStorage.setItem('pwaPromptClosed', 'true');
         });
     }
+
+    // 7. Funcionalidade da Igreja Mais Próxima Hoje
+    const btnNearest = document.getElementById('btn-nearest-today');
+    const nearestResult = document.getElementById('nearest-result');
+    const nearestInfo = document.getElementById('nearest-info');
+    const closeNearest = document.getElementById('close-nearest');
+
+    // Haversine formula to calculate distance in km
+    function calculateDistance(lat1, lon1, lat2, lon2) {
+        const R = 6371; // Radius of the earth in km
+        const dLat = (lat2 - lat1) * (Math.PI / 180);
+        const dLon = (lon2 - lon1) * (Math.PI / 180);
+        const a = 
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) * 
+            Math.sin(dLon / 2) * Math.sin(dLon / 2); 
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)); 
+        const d = R * c; // Distance in km
+        return d;
+    }
+
+    if (btnNearest) {
+        btnNearest.addEventListener('click', () => {
+            if (!navigator.geolocation) {
+                alert('Geolocalização não é suportada por este navegador.');
+                return;
+            }
+
+            // Provide visual feedback
+            const originalText = btnNearest.textContent;
+            btnNearest.textContent = 'Buscando...';
+            btnNearest.disabled = true;
+
+            navigator.geolocation.getCurrentPosition((position) => {
+                const userLat = position.coords.latitude;
+                const userLon = position.coords.longitude;
+
+                const hojeNome = diasSemana[new Date().getDay()];
+                const hojeData = agendaSemanal.find(d => d.dia === hojeNome);
+                
+                if (!hojeData || !hojeData.cultos || hojeData.cultos.length === 0) {
+                    nearestInfo.innerHTML = '<p>Não há cultos registrados para hoje.</p>';
+                    nearestResult.classList.remove('hidden');
+                    btnNearest.textContent = originalText;
+                    btnNearest.disabled = false;
+                    return;
+                }
+
+                let closestCongr = null;
+                let minDistance = Infinity;
+                let closestCultoDesc = '';
+
+                hojeData.cultos.forEach(culto => {
+                    culto.congrs.forEach(congr => {
+                        const coordStr = locationLinks[congr.location];
+                        if (coordStr) {
+                            const coords = coordStr.split(',');
+                            if (coords.length === 2 && coords[0] && coords[1]) {
+                                const lat = parseFloat(coords[0]);
+                                const lon = parseFloat(coords[1]);
+                                
+                                const dist = calculateDistance(userLat, userLon, lat, lon);
+                                if (dist < minDistance) {
+                                    minDistance = dist;
+                                    closestCongr = congr;
+                                    closestCultoDesc = culto.descricao;
+                                }
+                            }
+                        }
+                    });
+                });
+
+                if (closestCongr) {
+                    const coordStr = locationLinks[closestCongr.location];
+                    const distFormat = minDistance < 1 ? `${(minDistance * 1000).toFixed(0)} m` : `${minDistance.toFixed(1)} km`;
+                    
+                    nearestInfo.innerHTML = `
+                        <div class="culto-info">
+                            <strong>Congregação:</strong> ${closestCongr.bairro}
+                        </div>
+                        <div class="culto-info">
+                            <strong>Horário do Culto:</strong> ${closestCultoDesc}
+                        </div>
+                        <div class="culto-info">
+                            <strong>Distância:</strong> a aproximadamente ${distFormat} de você.
+                        </div>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=${coordStr}" target="_blank" rel="noopener noreferrer" class="route-link">
+                            Abrir no Google Maps
+                        </a>
+                    `;
+                } else {
+                    nearestInfo.innerHTML = '<p>Não foi possível encontrar congregações com horário de culto hoje perto de você.</p>';
+                }
+
+                nearestResult.classList.remove('hidden');
+                nearestResult.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                btnNearest.textContent = originalText;
+                btnNearest.disabled = false;
+
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'nearest_church_used', {
+                        'found': closestCongr ? true : false
+                    });
+                }
+            }, (error) => {
+                btnNearest.textContent = originalText;
+                btnNearest.disabled = false;
+                
+                let errorMsg = 'Não foi possível obter sua localização.';
+                if (error.code === 1) errorMsg = 'Você negou a permissão de localização. Por favor, permita o acesso para utilizar a funcionalidade.';
+                alert(errorMsg);
+            }, { 
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            });
+        });
+    }
+
+    if (closeNearest) {
+        closeNearest.addEventListener('click', () => {
+            nearestResult.classList.add('hidden');
+        });
+    }
 });

@@ -249,6 +249,79 @@ header h1 {
 }
 
 /* Seção de Links Úteis */
+
+/* Botão Mais Próxima */
+.btn-nearest {
+    background-color: var(--cor-verde-destaque);
+    color: var(--cor-branca);
+    box-shadow: 0 4px 8px rgba(93, 177, 150, 0.4);
+}
+
+.btn-nearest:hover {
+    background-color: #4da085;
+}
+
+/* Card de Resultado Mais Próxima */
+.nearest-card {
+    background-color: var(--cor-branca);
+    border: 2px solid var(--cor-verde-destaque);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 10px auto 20px auto;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(93, 177, 150, 0.2);
+    position: relative;
+    text-align: center;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.nearest-card h3 {
+    color: var(--cor-azul-escuro);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.nearest-card .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--cor-cinza-medio);
+    cursor: pointer;
+}
+
+.nearest-card .close-btn:hover {
+    color: var(--cor-preto);
+}
+
+.nearest-card .culto-info {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: var(--cor-preto);
+}
+
+.nearest-card strong {
+    color: var(--cor-azul-escuro);
+}
+
+.nearest-card .route-link {
+    display: inline-block;
+    background-color: var(--cor-azul-escuro);
+    color: var(--cor-branca);
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.nearest-card .route-link:hover {
+    background-color: var(--cor-preto);
+}
+
 .useful-links {
     padding: 20px;
     margin-top: 20px;
