@@ -93,10 +93,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const passesTypeFilter = (filterType === 'todos' || tipoCulto === filterType);
 
                 listItems.forEach(li => {
-                    const originalText = li.textContent;
-                    // Reset the innerHTML to remove any previous highlights before proceeding
-                    li.innerHTML = '';
-                    li.textContent = originalText;
+                    const existingAnchor = li.querySelector('a');
+                    const targetElement = existingAnchor ? existingAnchor : li;
+                    
+                    const originalText = targetElement.textContent;
+                    // Reset the text content to remove any previous highlights before proceeding
+                    targetElement.textContent = originalText;
                     
                     const textNormalized = originalText.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                     const passesSearchFilter = textNormalized.includes(normalizedTerm) || normalizedTerm === '';
@@ -123,13 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
                               }
                             }
 
-                            // We must reconstruct the anchor element to keep the link functionality
-                            const existingAnchor = li.querySelector('a');
-                            if (existingAnchor) {
-                                existingAnchor.innerHTML = highlightedHtml;
-                            } else {
-                                li.innerHTML = highlightedHtml;
-                            }
+                            targetElement.innerHTML = highlightedHtml;
                         }
                     } else {
                         li.classList.add('hidden');
