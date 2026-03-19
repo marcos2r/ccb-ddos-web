@@ -30,7 +30,8 @@ const locationLinks = {
     'aldeia-bororo': '-22.1532788,-54.8580426',
     'aldeia-jaguapiru': '', // Coordenadas pendentes
     'jardim-syria-rasselen': '', // Coordenadas pendentes
-    'distrito-de-carapa': '-22.441832,-55.017601'
+    'distrito-de-carapa': '-22.441832,-55.017601',
+    'laguna-carapa': '-22.560514,-55.153515'
 };
 
 const agendaSemanal = [
@@ -96,6 +97,13 @@ const agendaSemanal = [
                     { bairro: "Sitiocas Campina Verde", location: "sitiocas-campina-verde" },
                     { bairro: "Distrito de Itahum - TSS", location: "distrito-itahum" }
                 ]
+            },
+            {
+                tipo: "oficial",
+                descricao: "19:30 - Culto Oficial",
+                congrs: [
+                    { bairro: "Laguna Carapã", location: "laguna-carapa" }
+                ]
             }
         ]
     },
@@ -151,7 +159,8 @@ const agendaSemanal = [
                     { bairro: "Aldeia Jaguapiru", location: "aldeia-jaguapiru" },
                     { bairro: "Altos do indaiá", location: "altos-do-indaia" },
                     { bairro: "Sitiocas Campina Verde", location: "sitiocas-campina-verde" },
-                    { bairro: "Distrito de Itahum", location: "distrito-itahum" }
+                    { bairro: "Distrito de Itahum", location: "distrito-itahum" },
+                    { bairro: "Laguna Carapã", location: "laguna-carapa" }
                 ]
             }
         ]
