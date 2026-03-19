@@ -29,7 +29,8 @@ const locationLinks = {
     'aldeia-bororo-2': '-22.168685,-54.850104',
     'aldeia-bororo': '-22.1532788,-54.8580426',
     'aldeia-jaguapiru': '', // Coordenadas pendentes
-    'jardim-syria-rasselen': '' // Coordenadas pendentes
+    'jardim-syria-rasselen': '', // Coordenadas pendentes
+    'distrito-de-carapa': '-22.441832,-55.017601'
 };
 
 const agendaSemanal = [
@@ -228,7 +229,8 @@ const agendaSemanal = [
                     { bairro: "Jardim Colibri", location: "jardim-colibri" },
                     { bairro: "Jardim Syria Rasselen", location: "jardim-syria-rasselen" },
                     { bairro: "Sitiocas Campo Belo III", location: "sitiocas-campo-belo-3" },
-                    { bairro: "Aldeia Bororó II", location: "aldeia-bororo-2" }
+                    { bairro: "Aldeia Bororó II", location: "aldeia-bororo-2" },
+                    { bairro: "Distrito de Carapã", location: "distrito-de-carapa" }
                 ]
             },
             {
