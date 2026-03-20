@@ -1,6 +1,6 @@
 # Agenda de Cultos CCB - Dourados/MS
 
-![Logo CCB](https://ccbdourados.org.br/dir/img/Logo-ccb-para-fundo-claro.png)
+![Logo CCB](img/Logo-ccb-para-fundo-claro.png)
 
 Este projeto é uma Aplicação Web (PWA) voltada para listar e organizar a agenda semanal de cultos e reuniões da **Congregação Cristã no Brasil (CCB)** em Dourados - Mato Grosso do Sul, englobando também regiões vizinhas (distritos, sítios e aldeias).  
 O site tem como principal objetivo ajudar a irmandade a encontrar facilmente os horários de cultos oficiais, reuniões de jovens e menores (RJM) e obter as rotas de navegação até as igrejas de forma rápida, eficiente e acessível.
