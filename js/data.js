@@ -210,6 +210,7 @@ const agendaSemanal = [
             {
                 tipo: "ensaio",
                 descricao: "19:30 - Culto com Ensaio<br>(1º Sábado do Mês)",
+                semanas: [1],
                 congrs: [
                     { bairro: "Distrito Panambi", location: "distrito-panambi" }
                 ]
@@ -217,6 +218,7 @@ const agendaSemanal = [
             {
                 tipo: "rjm",
                 descricao: "19:30 - RJM<br>(4º Sábado do Mês)",
+                semanas: [4],
                 congrs: [
                     { bairro: "Distrito Panambi", location: "distrito-panambi" }
                 ]

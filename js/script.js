@@ -2,7 +2,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Renderizar Dinamicamente os Dias e Congregações
     const container = document.getElementById('dias-semana');
     
+    // Obter datas dos dias desta semana
+    const diasSemanaMap = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+    const hojeDate = new Date();
+    const hojeIdx = hojeDate.getDay(); 
+    const domingoDestaSemana = new Date(hojeDate);
+    domingoDestaSemana.setDate(hojeDate.getDate() - hojeIdx);
+
+    const weekOfMonthByDay = {};
+    diasSemanaMap.forEach((nomeDia, index) => {
+        const d = new Date(domingoDestaSemana);
+        d.setDate(domingoDestaSemana.getDate() + index);
+        // Calcula 1ª, 2ª, 3ª semana do mês, etc.
+        weekOfMonthByDay[nomeDia] = Math.ceil(d.getDate() / 7);
+    });
+    
     agendaSemanal.forEach(diaData => {
+        const currentWeekOfMonth = weekOfMonthByDay[diaData.dia];
+        
         const article = document.createElement('article');
         article.className = 'dia-semana';
         
@@ -10,7 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
         h2.textContent = diaData.dia;
         article.appendChild(h2);
         
+        let countVisible = 0;
+        
         diaData.cultos.forEach(culto => {
+            // Valida se o culto tem filtro de semana
+            if (culto.semanas && !culto.semanas.includes(currentWeekOfMonth)) {
+                return; // Ignora se não for a semana correspondente
+            }
+            countVisible++;
+            
             const section = document.createElement('section');
             section.className = 'culto';
             
@@ -52,7 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
             section.appendChild(ul);
             article.appendChild(section);
         });
-        container.appendChild(article);
+        if (countVisible > 0) {
+            container.appendChild(article);
+        }
     });
 
     // 2. Destacar Dia Atual
