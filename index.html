@@ -52,6 +52,10 @@
 
 <body>
     <header>
+        <div class="a11y-controls">
+            <button id="btn-increase-font" title="Aumentar fonte" aria-label="Aumentar fonte">A+</button>
+            <button id="btn-decrease-font" title="Diminuir fonte" aria-label="Diminuir fonte">A-</button>
+        </div>
         <div class="logo-container">
             <img src="./img/Logo-ccb-para-fundo-claro.png" alt="Logo CCB fundo Claro">
         </div>
@@ -66,6 +70,12 @@
         <section class="search-container">
             <input type="text" id="search-input" placeholder="Pesquisar congregação ou bairro..."
                 aria-label="Pesquisar congregações">
+        </section>
+
+        <!-- Modos de Visualização -->
+        <section class="view-mode-container">
+            <button id="view-mode-dia" class="view-mode-btn active">📅 Por Dia</button>
+            <button id="view-mode-igreja" class="view-mode-btn">⛪ Por Igreja</button>
         </section>
 
         <!-- Filtros Rápidos -->

@@ -22,6 +22,38 @@ header {
     background-color: var(--cor-azul-escuro);
     color: var(--cor-branca);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Controles de Acessibilidade */
+.a11y-controls {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    display: flex;
+    gap: 8px;
+}
+
+.a11y-controls button {
+    background-color: transparent;
+    border: 2px solid var(--cor-branca);
+    color: var(--cor-branca);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.a11y-controls button:hover {
+    background-color: var(--cor-branca);
+    color: var(--cor-azul-escuro);
 }
 
 header img {
@@ -115,6 +147,55 @@ header h1 {
     font-size: 0.9rem;
     padding-left: 10px;
     border-left: 2px solid var(--cor-azul-escuro);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.culto-item-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.culto-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.fav-btn, .share-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.15rem;
+    padding: 0;
+    line-height: 1;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0.6;
+}
+
+.fav-btn:hover, .share-btn:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.fav-btn.favorited {
+    color: gold;
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(0,0,0,0.3);
+}
+
+li.favorito-destaque {
+    background-color: rgba(255, 215, 0, 0.1);
+    border-left: 3px solid gold !important; /* Sobrescrito do azul para garantir contraste de favoritado */
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 0 5px 5px 0;
+    font-weight: bold;
+    margin-bottom: 8px;
 }
 
 .culto li a {
@@ -184,6 +265,37 @@ header h1 {
 #search-input:focus {
     box-shadow: 0 4px 15px rgba(3, 61, 96, 0.2);
     border-color: var(--cor-azul-escuro);
+}
+
+/* Modos de Visualização */
+.view-mode-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.view-mode-btn {
+    background-color: var(--cor-cinza-padrao);
+    color: var(--cor-preto);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+}
+
+.view-mode-btn:hover {
+    background-color: var(--cor-cinza-medio);
+    transform: translateY(-2px);
+}
+
+.view-mode-btn.active {
+    background-color: var(--cor-azul-escuro);
+    color: var(--cor-branca);
+    box-shadow: 0 4px 8px rgba(3, 61, 96, 0.3);
 }
 
 /* Filtros */
