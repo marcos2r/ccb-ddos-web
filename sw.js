@@ -1,4 +1,4 @@
-const CACHE_NAME = 'agenda-ccb-cache-v2';
+const CACHE_NAME = 'agenda-ccb-cache-v3';
 const urlsToCache = [
     '/',
     '/index.html',

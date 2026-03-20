@@ -2,8 +2,14 @@
 
 Todas as mudanças notáveis para o projeto **CCB Dourados - Agenda** serão documentadas de forma sucinta neste arquivo.
 
-## [Unreleased]
+## [2.0.0] - 2026-03-20
 ### Added
+- **Suite completa de UX (Experiência do Usuário)**:
+  - Botões de Acessibilidade (A+ / A-) salvos nativamente no dispositivo.
+  - Ícone de "Compartilhar" (Web Share API) injetado nas rotas.
+  - Função "Marcar Culto Favorito" (⭐) atrelada ao `localStorage` para priorização automática do card desejado para o topo das listas.
+  - Alternância de *Modo de Visualização* inteligente: Agrupar por Dia (Padrão) ou Agrupar por Igreja (Invertido).
+- **Inteligência de Agendas Esporádicas**: Motor de cálculo dinâmico de semanas para ocultar "Cultos de Ensaio (1º Sáb)" e "RJM (4º Sáb)" durante semanas inativas.
 - Documentação técnica e arquitetural completa do projeto (`README.md`, `CONTRIBUTING.md`, e pasta `docs/` com detalhamentos de `DATA` e `ARCHITECTURE`).
 
 ## [1.1.0] - 2026-03-19

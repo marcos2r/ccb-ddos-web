@@ -15,7 +15,10 @@ O site tem como principal objetivo ajudar a irmandade a encontrar facilmente os 
   * *Reunião Evangélica*
   * *Ensaio*
 * **Congregação Mais Próxima**: Utiliza dados de geolocalização do dispositivo combinados com uma fórmula matemática (*Haversine*) para encontrar o culto mais próximo válido para o dia atual, exibindo a distância exata em metros/quilômetros e a rota de navegação.
-* **Busca Textual Dinâmica (Fuzzy Search)**: Permite pesquisar em tempo real por bairro ou congregação; o texto correspondente é destacado dinamicamente sem perder a capacidade do link de redirecionamento para o mapa.
+* **Modos de Visualização e Favoritos ⭐**: Alterne entre a visão "Por Dia" ou "Por Igreja". Adicione propriedades de favoritismo marcando a sua "Comum Congregação", a qual será listada ativamente no topo em todos os dias que a acessar!
+* **Compartilhamento Rápido 📤**: Integração com a `Web Share API` nativa de celulares para encaminhar agendamentos (horário/rota) diretamente para familiares no WhatsApp em apenas 1 clique.
+* **Busca Textual Dinâmica (Fuzzy Search)**: Permite pesquisar em tempo real por bairro ou congregação; o texto correspondente é destacado dinamicamente sem perder a capacidade do link de redirecionamento.
+* **Acessibilidade Aprimorada**: Layout enriquecido com controles independentes para aumento fluido ou redução do tamanho da fonte (`A+` / `A-`), armazenando as preferências do usuário no App Storage da plataforma.
 * **Integração Inteligente com Maps**: A localização de cada templo listado pode ser aberta com apenas um clique diretamente no aplicativo de GPS padrão do dispositivo traçando a rota lógica até o lugar.
 * **Progressive Web App (PWA)**: O site funciona offline e é otimizado para celulares. Uma notificação amigável instrui os usuários sobre a instalação, transformando o site em um App na tela incial do smartphone ou desktop (arquitetura apoiada por Web Manifest e Service Workers).
 * **Recursos Adicionais e Acessibilidade**: Botão de "Voltar ao Topo" suave, links rápidos para a intranet (Siga/Webmail CCB) e opção para download de guias vitais em arquivo estático `.pdf` (Lista de Batismos e Reuniões para o Ministério).
