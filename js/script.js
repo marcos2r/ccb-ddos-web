@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // --- 0. Sistema Suspenso (Manutenção) ---
+    if (typeof SISTEMA_SUSPENSO !== 'undefined' && SISTEMA_SUSPENSO) {
+        document.getElementById('app-content').style.display = 'none';
+        document.getElementById('tela-suspensao').style.display = 'flex';
+        return; // Aborta toda a renderização do JS daqui para baixo.
+    }
+
     // --- 0. Acessibilidade (Tamanho da Fonte) ---
     const btnIncreaseFont = document.getElementById('btn-increase-font');
     const btnDecreaseFont = document.getElementById('btn-decrease-font');

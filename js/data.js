@@ -1,3 +1,8 @@
+// --- CONFIGURAÇÃO ADMINISTRATIVA ---
+// Altere para "true" abaixo caso precise suspender a visualização de tudo no site inteiro por tempo indeterminado
+const SISTEMA_SUSPENSO = false;
+
+// Dicionário de Coordenadas
 const locationLinks = {
     'vila-planalto': '-22.222883,-54.802340',
     'vila-sao-francisco': '-22.221370,-54.772363',
